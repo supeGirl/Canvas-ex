@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <title>Mister-Canvas</title>
+  </head>
+  <body onload="onInit()">
+    <header>
+      <h1>Canvas</h1>
+    </header>
+    <div class="canvas-container">
+      
+          <div class="toolbar">
+            <input type="color" id="firstColor" name="firstColor" value="#FCFFE9" />
+            <input type="color" id="secondColor" name="secondColor" value="#15C1B5" />
+            <select>
+              <option value="circles">Circles</option>
+              <option value="squares">Squares</option>
+            </select>
+            <a href="#" class="btn save" onclick="onSAveCanvas(this)" download="my-img.jpg">Save</a>
+            <a href="#" class="btn clear" onclick="onClearCanvas()">Clear</a>
+            <a href="#" class="btn about" onclick="onInfoCanvas()">About</a>
+          </div>
+      <canvas width="400" height="500" onclick="onDraw(event)"></canvas>
+    </div>
+
+    <dialog class="info">
+      <form method="dialog">
+        <h3 class="title">How to use</h3>
+
+        <div class="web-info">
+          <p>Select the brush you would like to use and paint</p>
+          <p>save button for download the img</p>
+        </div>
+
+        <button class="close">✖</button>
+      </form>
+    </dialog>
+
+    <footer>
+      <small>&copy;2024 All rights reserved.</small>
+    </footer>
+
+    <script src="js/servises/storage.service.js"></script>
+    <script src="js/servises/canvas.service.js"></script>
+    <script src="js/controllers/canvas.controller.js"></script>
+  </body>
+</html>
