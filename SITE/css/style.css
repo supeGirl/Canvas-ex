@@ -1,40 +1,69 @@
-
 body {
   text-align: center;
 }
 
 /* TOOLBAR */
 .toolbar {
+  display: flex;
   position: absolute;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  display: flex;
   gap: 5px;
   background: rgb(255, 255, 255);
   padding: 5px;
   border-radius: 5px;
+  width: 65%;
+  max-width: 550px;
+  box-sizing: border-box;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.664);
 }
 
-#firstColor,
-#secondColor {
-  width: 17px;
-  height: 22px;
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  background: rgb(255, 255, 255);
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+  white-space: nowrap;
+}
+
+.color-and-brusher-controls {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+#border-color,
+#fill-color {
+  width: 30px;
+  height: 30px;
   border: none;
   padding: 0;
   margin: 0;
   cursor: pointer;
-  margin-top: 8px;
+}
+
+.brushers {
+  cursor: pointer;
+  padding: 2px;
+  font-size: 0.9em;
+}
+
+label {
+  display: inline-block;
 }
 
 .btn {
   text-decoration: none;
   color: black;
   background: none;
-  padding: 8px;
+  padding-inline-end: 8px;
   gap: 10px;
-  font-size: 0.9em;
+  font-size: 1.1em;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -64,19 +93,20 @@ body {
 }
 
 canvas {
-  background-color: white;
+  background-color: rgb(235, 233, 233);
   border: 1px solid black;
 }
 
 /* FORM */
 .info {
   position: fixed;
-  top: 50%;
+  top: 20%;
   left: 50%;
   transform: translate(-50%, -50%);
+  padding: 1.5em;
   width: 400px;
   max-width: 90%;
-  padding: 1.5em;
+  min-height: 30%;
   border: 1px solid lightgray;
   background: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -90,6 +120,7 @@ canvas {
 
 .info title {
   text-transform: uppercase;
+  font-size: 5em;
   margin-bottom: 1em;
 }
 
@@ -101,4 +132,81 @@ canvas {
   background: transparent;
   border: none;
   cursor: pointer;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 980px) {
+  .toolbar {
+    display: flex;
+    padding: 5px;
+    width: 70%;
+  }
+
+  .controls {
+    padding: 5px;
+    justify-content: space-around;
+  }
+
+  .color-and-brusher-controls {
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+
+  #border-color,
+  #fill-color {
+    width: 25px;
+    height: 25px;
+  }
+
+  label {
+    display: flex;
+    align-items: center;
+  }
+
+
+  .brush-size {
+   width: 100%;
+  }
+
+}
+
+@media (max-width: 750px) {
+  .toolbar {
+    width: 70%;
+  }
+
+  .color-and-brusher-controls {
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    width: 100%; 
+    max-width: 300px;
+    flex-wrap: wrap;
+
+  }
+  .about::before {
+    display: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .toolbar {
+    display: flex;
+    padding: 10px;
+    width: 55%;
+    flex-wrap: wrap;
+  }
+
+  .color-and-brusher-controls {
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+
+  .brush-size{
+  }
+ 
+.btn{
+  padding: 0;
+}
 }

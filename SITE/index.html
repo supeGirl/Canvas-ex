@@ -11,21 +11,58 @@
     <header>
       <h1>Canvas</h1>
     </header>
+    
     <div class="canvas-container">
+    <div class="toolbar">
+      <div class="controls">
+        <div class="color-and-brusher-controls">
+          
+          <input onchange="onChangeBorderColor(value)"
+          type="color"
+          id="border-color"
+          name="border-color"
+          title="border-color"
+          value="#15C1B5"
+          />
+          
+          <input onchange="onChangeFillColor(value)"
+          type="color"
+          id="fill-color"
+          name="fill-color"
+          title="background-color"
+          value="#ffffff"
+          
+          />
+          <select class="brushers" onchange="onSelectBrusher(value)">
+            <option value="circles">Circles</option>
+            <option value="rects">Rects</option>
+            <option value="pencil">Pencil</option>
+          </select>
+        </div>
+        <section>
+          <label>Brush Size-  
+            <span class="brush-size-value"> 5</span> <br />
+          </label>
+          <input onchange="onChangeBrushSize(value)"
+          type="range"
+          class="brush-size"
+          min="1"
+          max="8"
+          value="5"
+          />
+        </section>
+      </div>
       
-          <div class="toolbar">
-            <input type="color" id="firstColor" name="firstColor" value="#FCFFE9" />
-            <input type="color" id="secondColor" name="secondColor" value="#15C1B5" />
-            <select>
-              <option value="circles">Circles</option>
-              <option value="squares">Squares</option>
-            </select>
-            <a href="#" class="btn save" onclick="onSAveCanvas(this)" download="my-img.jpg">Save</a>
-            <a href="#" class="btn clear" onclick="onClearCanvas()">Clear</a>
-            <a href="#" class="btn about" onclick="onInfoCanvas()">About</a>
-          </div>
-      <canvas width="400" height="500" onclick="onDraw(event)"></canvas>
+      <div class="actions">
+        <a href="#" class="btn clear" onclick="onClearCanvas()">Clear</a>
+        <a href="#" class="btn save" onclick="onSAveCanvas(this)" download="my-img.jpg">Save</a>
+        <a href="#" class="btn share" onclick="onUploadImg(this)">Share</a>
+        <a href="#" class="btn about" onclick="onInfoCanvas()">About</a>
+      </div>
+      
     </div>
+    <canvas></canvas>
+  </div>
 
     <dialog class="info">
       <form method="dialog">
@@ -44,7 +81,8 @@
       <small>&copy;2024 All rights reserved.</small>
     </footer>
 
-    <script src="js/servises/storage.service.js"></script>
+    <script src="js/servises/util.service.js"></script>
+    <script src="js/servises/facebook-shere.service.js"></script>
     <script src="js/servises/canvas.service.js"></script>
     <script src="js/controllers/canvas.controller.js"></script>
   </body>
