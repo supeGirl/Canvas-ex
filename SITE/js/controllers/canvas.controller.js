@@ -4,8 +4,8 @@ let gElCanvas
 let gCtx
 
 let gLasPos = {
-  x:0,
-  y:0
+  x: 0,
+  y: 0,
 }
 
 let gIsDrawing = false
@@ -81,7 +81,7 @@ function onDraw(ev) {
   const {x, y} = getEvPos(ev)
   // console.log('offsetX', x)
   // console.log('offsetY', y)
-  
+
   const {brusher} = getCanvasData()
   switch (brusher) {
     case 'circles':
@@ -97,16 +97,16 @@ function onDraw(ev) {
 }
 
 function drawCircles(x, y, ev) {
-
   const {borderColor, fillColor, brushSize} = getCanvasData()
   const {movementX, movementY} = ev
 
   gCtx.beginPath()
   gCtx.lineWidth = brushSize
 
-  const size = Math.abs(movementX * movementY) / 50 
+  const size = Math.abs(movementX * movementY) / 50
+
   console.log('size', size)
-  
+
   gCtx.arc(x, y, size, 0, Math.PI * 2)
 
   gCtx.strokeStyle = borderColor
@@ -115,14 +115,10 @@ function drawCircles(x, y, ev) {
   gCtx.stroke()
 
   console.log('circle', gCtx)
-  
-  
 }
 
 function drawRects(x, y) {
-
   const {borderColor, fillColor, brushSize} = getCanvasData()
-
 
   gCtx.beginPath()
   gCtx.fillStyle = fillColor
@@ -132,7 +128,6 @@ function drawRects(x, y) {
   gCtx.rect(x, y, getRandomInt(10, 50), getRandomInt(10, 50))
   gCtx.fill()
   gCtx.stroke()
-
 }
 
 function drawPencil(x, y) {
@@ -201,7 +196,7 @@ function getEvPos(ev) {
     ev = ev.changedTouches[0]
     //* Calc the right pos according to the touch screen
     pos = {
-      x:( ev.pageX - ev.target.offsetLeft - ev.target.clientLeft) / PIXEL_RATIO,
+      x: (ev.pageX - ev.target.offsetLeft - ev.target.clientLeft) / PIXEL_RATIO,
       y: (ev.pageY - ev.target.offsetTop - ev.target.clientTop) / PIXEL_RATIO,
     }
   }
