@@ -104,7 +104,11 @@ function drawCircles(x, y, ev) {
   gCtx.beginPath()
   gCtx.lineWidth = brushSize
 
+<<<<<<< HEAD
   const size = Math.abs(movementX * movementY) / 50 + 10
+=======
+  const size = Math.abs(movementX * movementY) / 10
+>>>>>>> 7d930046fa56f0fa5e81f3346be5b8eaabce3bf6
   console.log('size', size)
   
   gCtx.arc(x, y, size, 0, Math.PI * 2)
